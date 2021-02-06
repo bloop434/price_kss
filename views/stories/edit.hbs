@@ -1,0 +1,36 @@
+<h3>Izmenite pricu</h3>
+<div class="row">
+    <form action="/stories/{{story._id}}" method="POST" class="col s12">
+        <input type="hidden" name="_method" value="PUT">
+        <div class="row">
+            <div class="input-field">
+                <input type="text" id="title" name="title" value="{{story.title}}">
+                <label for="title">Ime price</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field">
+                <select id="dostupnost" name="dostupnost">
+                    {{#select story.dostupnost}}
+                    <option value="javna" selected>Javna</option>
+                    <option value="privatna">Privatna</option>
+                    {{/select}}
+                </select>
+                <label for="dostupnost">Dostupnost</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field">
+                <h5>Ispricajte nam vasu pricu:</h5>
+                <textarea id="body" name="body">{{story.body}}</textarea>
+            </div>
+        </div>
+
+        <div class="row">
+            <input type="submit" value="Snimi" class="btn">
+            <a href="/dashboard" class="btn orange">Izadjite</a>
+        </div>
+    </form>
+</div>
